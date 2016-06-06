@@ -1,0 +1,801 @@
+<?xml version='1.0'?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="account.tax.group" id="tax_group_sale">
+            <field name="name">Ventas</field>
+            <field name="code">Ventas</field>
+            <field name="kind">sale</field>
+        </record>
+        <record model="account.tax.group" id="tax_group_purchase">
+            <field name="name">Compras</field>
+            <field name="code">Compras</field>
+            <field name="kind">purchase</field>
+        </record>
+        <record model="account.tax.group" id="tax_group_both">
+            <field name="name">Ambos</field>
+            <field name="code">Ambos</field>
+            <field name="kind">both</field>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_ec">
+            <field name="name">PLAN DE IMPUESTOS ECUADOR</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_104">
+            <field name="name">FORMULARIO 104: DECLARACION DEL IMPUESTO AL VALOR AGREGADO</field>
+            <field name="parent" ref="taxcode_ec"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_10401">
+            <field name="name">RESUMEN DE VENTAS Y OTRAS OPERACIONES DEL PERÍODO QUE DECLARA (FORMULARIO 104)</field>
+            <field name="parent" ref="taxcode_104"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040101">
+            <field name="name">VENTAS LOCALES GRAVADAS TARIFA 12% - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">401</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040102">
+            <field name="name">VENTAS LOCALES GRAVADAS TARIFA 0% QUE NO DAN DERECHO A CREDITO TRIBUTARIO – VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">403</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040103">
+            <field name="name">VENTAS LOCALES GRAVADAS TARIFA 0% QUE DAN DERECHO A CREDITO TRIBUTARIO - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">405</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040104">
+            <field name="name">VENTAS NO OBJETO DE IVA - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">431</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040105">
+            <field name="name">VENTAS EXENTAS DE IVA - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">431</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040106">
+            <field name="name">VENTAS LOCALES GRAVADAS TARIFA 12% - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">411</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040107">
+            <field name="name">VENTAS LOCALES GRAVADAS TARIFA 0% QUE NO DAN DERECHO A CREDITO TRIBUTARIO - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">413</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040108">
+            <field name="name">VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 0% QUE DAN DERECHO A CREDITO TRIBUTARIO - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">415</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040109">
+            <field name="name">VENTAS NO OBJETO DE IVA - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">441</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040110">
+            <field name="name">VENTAS EXENTAS DE IVA - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">441</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040111">
+            <field name="name">IVA VENTAS LOCALES GRAVADAS TARIFA 12%</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="code">421</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040112">
+            <field name="name">IVA VENTAS 0%</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040113">
+            <field name="name">VENTAS LOCALES GRAVADAS TARIFA 14% - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040114">
+            <field name="name">VENTAS LOCALES GRAVADAS TARIFA 14% - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040115">
+            <field name="name">IVA VENTAS LOCALES GRAVADAS TARIFA 14%</field>
+            <field name="parent" ref="taxcode_10401"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_10402">
+            <field name="name">RESUMEN DE ADQUISICIONES Y PAGOS DEL PERÍODO QUE DECLARA</field>
+            <field name="parent" ref="taxcode_104"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040201">
+            <field name="name">COMPRAS GRAVADAS TARIFA 12% (CON DERECHO A CRÉDITO TRIBUTARIO) - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">500</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040202">
+            <field name="name">OTRAS COMPRAS GRAVADAS TARIFA 12% (SIN DERECHO A CRÉDITO TRIBUTARIO) - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">502</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040203">
+            <field name="name">COMPRAS GRAVADAS TARIFA 0% - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">507</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040204">
+            <field name="name">COMPRAS REALIZADAS A CONTRIBUYENTES RISE - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">508</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040205">
+            <field name="name">COMPRAS NO OBJETO DE IVA - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">531</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040206">
+            <field name="name">COMPRAS EXENTAS DEL PAGO DE IVA - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">532</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040207">
+            <field name="name">COMPRAS GRAVADOS TARIFA 12% (CON DERECHO A CRÉDITO TRIBUTARIO) - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">510</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040208">
+            <field name="name">OTRAS COMPRAS GRAVADAS TARIFA 12% (SIN DERECHO A CRÉDITO TRIBUTARIO) - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">512</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040209">
+            <field name="name">COMPRAS GRAVADOS TARIFA 0% - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">517</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040210">
+            <field name="name">COMPRAS REALIZADAS A CONTRIBUYENTES RISE - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">518</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040211">
+            <field name="name">COMPRAS NO OBJETO DE IVA - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">541</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040212">
+            <field name="name">COMPRAS EXENTAS DEL PAGO DE IVA - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">542</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040213">
+            <field name="name">IVA COMPRAS GRAVADAS TARIFA 12% (CON DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">520</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040214">
+            <field name="name">IVA OTRAS COMPRAS GRAVADAS TARIFA 12% (SIN DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">522</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040215">
+            <field name="name">ANTICIPO RETENCIÓN IMPUESTO A LA RENTA</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="code">609</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040216">
+            <field name="name">IVA COMPRAS 0%</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040217">
+            <field name="name">COMPRAS GRAVADOS TARIFA 14% (CON DERECHO A CRÉDITO TRIBUTARIO) - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040218">
+            <field name="name">OTRAS COMPRAS GRAVADAS TARIFA 14% (SIN DERECHO A CRÉDITO TRIBUTARIO) - VALOR BRUTO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040219">
+            <field name="name">COMPRAS GRAVADAS TARIFA 14% (CON DERECHO A CRÉDITO TRIBUTARIO) - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040220">
+            <field name="name">OTRAS COMPRAS GRAVADAS TARIFA 14% (SIN DERECHO A CRÉDITO TRIBUTARIO) - VALOR NETO</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040221">
+            <field name="name">IVA COMPRAS GRAVADAS TARIFA 14% (CON DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040222">
+            <field name="name">IVA OTRAS COMPRAS GRAVADAS TARIFA 14% (SIN DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="parent" ref="taxcode_10402"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_10403">
+            <field name="name">AGENTE DE RETENCIÓN DEL IMPUESTO AL VALOR AGREGADO</field>
+            <field name="parent" ref="taxcode_104"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040301">
+            <field name="name">RETENCIÓN DEL 10%</field>
+            <field name="parent" ref="taxcode_10403"/>
+            <field name="code">721</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040302">
+            <field name="name">RETENCIÓN DEL 20%</field>
+            <field name="parent" ref="taxcode_10403"/>
+            <field name="code">723</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040303">
+            <field name="name">RETENCIÓN DEL 30%</field>
+            <field name="parent" ref="taxcode_10403"/>
+            <field name="code">725</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040304">
+            <field name="name">RETENCIÓN DEL 70%</field>
+            <field name="parent" ref="taxcode_10403"/>
+            <field name="code">727</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1040305">
+            <field name="name">RETENCIÓN DEL 100%</field>
+            <field name="parent" ref="taxcode_10403"/>
+            <field name="code">729</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_103">
+            <field name="name">FORMULARIO 103: DECLARACION DE RETENCIONES EN LA FUENTE DEL IMPUESTO A LA RENTA</field>
+            <field name="parent" ref="taxcode_ec"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_10301">
+            <field name="name">DETALLE DE PAGOS Y RETENCIÓN POR IMPUESTO A LA RENTA (FORMULARIO 103)</field>
+            <field name="parent" ref="taxcode_103"/>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030101">
+            <field name="name">EN RELACIÓN DE DEPENDENCIA QUE SUPERA O NO LA BASE DESGRAVADA - BASE IMPONIBLE</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">302</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030102">
+            <field name="name">HONORARIOS PROFESIONALES  - BASE IMPONIBLE</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">303</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030103">
+            <field name="name">PREDOMINA EL INTELECTO - BASE IMPONIBLE</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">304</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030104">
+            <field name="name">PREDOMINA MANO DE OBRA - BASE IMPONIBLE</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">307</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030105">
+            <field name="name">OTRAS RETENCIONES APLICABLES EL 1% - BASE IMPONIBLE</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">343</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030106">
+            <field name="name">OTRAS RETENCIONES APLICABLES EL 2% - BASE IMPONIBLE</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">344</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030107">
+            <field name="name">OTRAS RETENCIONES APLICABLES EL 8% - BASE IMPONIBLE</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">345</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030108">
+            <field name="name">OTRAS RETENCIONES APLICABLES A OTROS PORCENTAJES - BASE IMPONIBLE</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">346</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030109">
+            <field name="name">EN RELACIÓN DE DEPENDENCIA QUE SUPERA O NO LA BASE DESGRAVADA - VALOR RETENIDO</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">352</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030110">
+            <field name="name">HONORARIOS PROFESIONALES  - VALOR RETENIDO</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">353</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030111">
+            <field name="name">PREDOMINA EL INTELECTO - VALOR RETENIDO</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">354</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030112">
+            <field name="name">PREDOMINA MANO DE OBRA - VALOR RETENIDO</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">357</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030113">
+            <field name="name">OTRAS RETENCIONES APLICABLES EL 1% - VALOR RETENIDO</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">393</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030114">
+            <field name="name">OTRAS RETENCIONES APLICABLES EL 2% - VALOR RETENIDO</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">394</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030115">
+            <field name="name">OTRAS RETENCIONES APLICABLES EL 8% - VALOR RETENIDO</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">395</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.code.template" id="taxcode_1030116">
+            <field name="name">OTRAS RETENCIONES APLICABLES A OTROS PORCENTAJES - VALOR RETENIDO</field>
+            <field name="parent" ref="taxcode_10301"/>
+            <field name="code">396</field>
+            <field name="account" ref="pc"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040101">
+            <field name="name">IVA VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 12%</field>
+            <field name="description">IVA VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 12%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.12')"/>
+            <field name="invoice_account" ref="pc_20102010101"/>
+            <field name="credit_note_account" ref="pc_20102010101"/>
+            <field name="invoice_base_code" ref="taxcode_1040101"/>
+            <field name="invoice_tax_code" ref="taxcode_1040111"/>
+            <field name="credit_note_base_code" ref="taxcode_1040101"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040111"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040102">
+            <field name="name">IVA VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 0% QUE NO DAN DERECHO A CREDITO TRIBUTARIO</field>
+            <field name="description">IVA VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 0% QUE NO DAN DERECHO A CREDITO TRIBUTARIO</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.0')"/>
+            <field name="invoice_account" ref="pc_20102010102"/>
+            <field name="credit_note_account" ref="pc_20102010102"/>
+            <field name="invoice_base_code" ref="taxcode_1040102"/>
+            <field name="invoice_tax_code" ref="taxcode_1040112"/>
+            <field name="credit_note_base_code" ref="taxcode_1040102"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040112"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040103">
+            <field name="name">IVA VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 0% QUE DAN DERECHO A CREDITO TRIBUTARIO</field>
+            <field name="description">IVA VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 0% QUE DAN DERECHO A CREDITO TRIBUTARIO</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.0')"/>
+            <field name="invoice_account" ref="pc_20102010103"/>
+            <field name="credit_note_account" ref="pc_20102010103"/>
+            <field name="invoice_base_code" ref="taxcode_1040103"/>
+            <field name="invoice_tax_code" ref="taxcode_1040112"/>
+            <field name="credit_note_base_code" ref="taxcode_1040103"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040112"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040104">
+            <field name="name">VENTAS NO OBJETO DE IVA</field>
+            <field name="description">VENTAS NO OBJETO DE IVA</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">none</field>
+            <field name="invoice_account" ref="pc_20102010104"/>
+            <field name="credit_note_account" ref="pc_20102010104"/>
+            <field name="invoice_base_code" ref="taxcode_1040104"/>
+            <field name="invoice_tax_code" ref="taxcode_1040109"/>
+            <field name="credit_note_base_code" ref="taxcode_1040104"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040109"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040105">
+            <field name="name">VENTAS EXENTAS DE IVA</field>
+            <field name="description">VENTAS EXENTAS DE IVA</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">none</field>
+            <field name="invoice_account" ref="pc_20102010105"/>
+            <field name="credit_note_account" ref="pc_20102010105"/>
+            <field name="invoice_base_code" ref="taxcode_1040105"/>
+            <field name="invoice_tax_code" ref="taxcode_1040110"/>
+            <field name="credit_note_base_code" ref="taxcode_1040105"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040110"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040106">
+            <field name="name">IVA VENTAS LOCALES GRAVADAS TARIFA 14%</field>
+            <field name="description">IVA VENTAS LOCALES GRAVADAS TARIFA 14%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.14')"/>
+            <field name="invoice_account" ref="pc_20102010106"/>
+            <field name="credit_note_account" ref="pc_20102010106"/>
+            <field name="invoice_base_code" ref="taxcode_1040113"/>
+            <field name="invoice_tax_code" ref="taxcode_1040115"/>
+            <field name="credit_note_base_code" ref="taxcode_1040113"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040115"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040201">
+            <field name="name">IVA COMPRAS GRAVADAS TARIFA 12% (CON DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="description">IVA COMPRAS GRAVADAS TARIFA 12% (CON DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_purchase"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.12')"/>
+            <field name="invoice_account" ref="pc_101030101"/>
+            <field name="credit_note_account" ref="pc_101030101"/>
+            <field name="invoice_base_code" ref="taxcode_1040201"/>
+            <field name="invoice_tax_code" ref="taxcode_1040213"/>
+            <field name="credit_note_base_code" ref="taxcode_1040201"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040213"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040202">
+            <field name="name">IVA COMPRAS GRAVADAS TARIFA 12% (SIN DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="description">IVA COMPRAS GRAVADAS TARIFA 12% (SIN DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_purchase"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.12')"/>
+            <field name="invoice_account" ref="pc_101030102"/>
+            <field name="credit_note_account" ref="pc_101030102"/>
+            <field name="invoice_base_code" ref="taxcode_1040202"/>
+            <field name="invoice_tax_code" ref="taxcode_1040214"/>
+            <field name="credit_note_base_code" ref="taxcode_1040202"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040214"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040203">
+            <field name="name">IVA COMPRAS GRAVADAS TARIFA 0%</field>
+            <field name="description">IVA COMPRAS GRAVADAS TARIFA 0%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_purchase"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.0')"/>
+            <field name="invoice_account" ref="pc_101030103"/>
+            <field name="credit_note_account" ref="pc_101030103"/>
+            <field name="invoice_base_code" ref="taxcode_1040203"/>
+            <field name="invoice_tax_code" ref="taxcode_1040216"/>
+            <field name="credit_note_base_code" ref="taxcode_1040203"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040216"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040204">
+            <field name="name">COMPRAS REALIZADAS A CONTRIBUYENTES RISE </field>
+            <field name="description">COMPRAS REALIZADAS A CONTRIBUYENTES RISE </field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_purchase"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.0')"/>
+            <field name="invoice_account" ref="pc_101030104"/>
+            <field name="credit_note_account" ref="pc_101030104"/>
+            <field name="invoice_base_code" ref="taxcode_1040204"/>
+            <field name="invoice_tax_code" ref="taxcode_1040204"/>
+            <field name="credit_note_base_code" ref="taxcode_1040204"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040204"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040205">
+            <field name="name">COMPRAS NO OBJETO DE IVA</field>
+            <field name="description">COMPRAS NO OBJETO DE IVA</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_purchase"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.0')"/>
+            <field name="invoice_account" ref="pc_101030105"/>
+            <field name="credit_note_account" ref="pc_101030105"/>
+            <field name="invoice_base_code" ref="taxcode_1040205"/>
+            <field name="invoice_tax_code" ref="taxcode_1040205"/>
+            <field name="credit_note_base_code" ref="taxcode_1040205"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040205"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040206">
+            <field name="name">COMPRAS EXENTAS DEL PAGO DE IVA</field>
+            <field name="description">COMPRAS EXENTAS DEL PAGO DE IVA</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_purchase"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.0')"/>
+            <field name="invoice_account" ref="pc_101030106"/>
+            <field name="credit_note_account" ref="pc_101030106"/>
+            <field name="invoice_base_code" ref="taxcode_1040206"/>
+            <field name="invoice_tax_code" ref="taxcode_1040206"/>
+            <field name="credit_note_base_code" ref="taxcode_1040206"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040206"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040207">
+            <field name="name">IVA COMPRAS GRAVADOS TARIFA 14% (CON DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="description">IVA COMPRAS GRAVADOS TARIFA 14% (CON DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_purchase"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.14')"/>
+            <field name="invoice_account" ref="pc_101030107"/>
+            <field name="credit_note_account" ref="pc_101030107"/>
+            <field name="invoice_base_code" ref="taxcode_1040221"/>
+            <field name="invoice_tax_code" ref="taxcode_1040221"/>
+            <field name="credit_note_base_code" ref="taxcode_1040221"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040221"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040208">
+            <field name="name">IVA COMPRAS GRAVADOS TARIFA 14% (SIN DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="description">IVA COMPRAS GRAVADOS TARIFA 14% (SIN DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_purchase"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.14')"/>
+            <field name="invoice_account" ref="pc_101030108"/>
+            <field name="credit_note_account" ref="pc_101030108"/>
+            <field name="invoice_base_code" ref="taxcode_1040222"/>
+            <field name="invoice_tax_code" ref="taxcode_1040222"/>
+            <field name="credit_note_base_code" ref="taxcode_1040222"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040222"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040209">
+            <field name="name">ANTICIPO RETENCION IVA 10%</field>
+            <field name="description">ANTICIPO RETENCION IVA 10%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.1')"/>
+            <field name="invoice_account" ref="pc_101040101"/>
+            <field name="credit_note_account" ref="pc_101040101"/>
+            <field name="invoice_base_code" ref="taxcode_1040113"/>
+            <field name="invoice_tax_code" ref="taxcode_1040301"/>
+            <field name="credit_note_base_code" ref="taxcode_1040113"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040301"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040210">
+            <field name="name">ANTICIPO RETENCION IVA 20%</field>
+            <field name="description">ANTICIPO RETENCION IVA 20%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.2')"/>
+            <field name="invoice_account" ref="pc_101040102"/>
+            <field name="credit_note_account" ref="pc_101040102"/>
+            <field name="invoice_base_code" ref="taxcode_1040113"/>
+            <field name="invoice_tax_code" ref="taxcode_1040302"/>
+            <field name="credit_note_base_code" ref="taxcode_1040113"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040302"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040211">
+            <field name="name">ANTICIPO RETENCION IVA 30%</field>
+            <field name="description">ANTICIPO RETENCION IVA 30%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.3')"/>
+            <field name="invoice_account" ref="pc_101040103"/>
+            <field name="credit_note_account" ref="pc_101040103"/>
+            <field name="invoice_base_code" ref="taxcode_1040113"/>
+            <field name="invoice_tax_code" ref="taxcode_1040303"/>
+            <field name="credit_note_base_code" ref="taxcode_1040113"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040303"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040212">
+            <field name="name">ANTICIPO RETENCION IVA 70%</field>
+            <field name="description">ANTICIPO RETENCION IVA 70%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.7')"/>
+            <field name="invoice_account" ref="pc_101040104"/>
+            <field name="credit_note_account" ref="pc_101040104"/>
+            <field name="invoice_base_code" ref="taxcode_1040113"/>
+            <field name="invoice_tax_code" ref="taxcode_1040304"/>
+            <field name="credit_note_base_code" ref="taxcode_1040113"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040304"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040213">
+            <field name="name">ANTICIPO RETENCION IVA 100%</field>
+            <field name="description">ANTICIPO RETENCION IVA 100%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-1.0')"/>
+            <field name="invoice_account" ref="pc_101040105"/>
+            <field name="credit_note_account" ref="pc_101040105"/>
+            <field name="invoice_base_code" ref="taxcode_1040113"/>
+            <field name="invoice_tax_code" ref="taxcode_1040305"/>
+            <field name="credit_note_base_code" ref="taxcode_1040113"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040305"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040214">
+            <field name="name">ANTICIPO RETENCION EN LA FUENTE 1%</field>
+            <field name="description">ANTICIPO RETENCION EN LA FUENTE 1%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.01')"/>
+            <field name="invoice_account" ref="pc_101040201"/>
+            <field name="credit_note_account" ref="pc_101040201"/>
+            <field name="invoice_base_code" ref="taxcode_1040101"/>
+            <field name="invoice_tax_code" ref="taxcode_1040215"/>
+            <field name="credit_note_base_code" ref="taxcode_1040101"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040215"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040215">
+            <field name="name">ANTICIPO RETENCION EN LA FUENTE 2%</field>
+            <field name="description">ANTICIPO RETENCION EN LA FUENTE 2%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.02')"/>
+            <field name="invoice_account" ref="pc_101040202"/>
+            <field name="credit_note_account" ref="pc_101040202"/>
+            <field name="invoice_base_code" ref="taxcode_1040101"/>
+            <field name="invoice_tax_code" ref="taxcode_1040215"/>
+            <field name="credit_note_base_code" ref="taxcode_1040101"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040215"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040216">
+            <field name="name">ANTICIPO RETENCION EN LA FUENTE 8%</field>
+            <field name="description">ANTICIPO RETENCION EN LA FUENTE 8%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.08')"/>
+            <field name="invoice_account" ref="pc_101040203"/>
+            <field name="credit_note_account" ref="pc_101040203"/>
+            <field name="invoice_base_code" ref="taxcode_1040101"/>
+            <field name="invoice_tax_code" ref="taxcode_1040215"/>
+            <field name="credit_note_base_code" ref="taxcode_1040101"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040215"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+        <record model="account.tax.template" id="tax_1040217">
+            <field name="name">ANTICIPO RETENCION EN LA FUENTE 10%</field>
+            <field name="description">ANTICIPO RETENCION EN LA FUENTE 10%</field>
+            <field name="account" ref="pc"/>
+            <field name="group" ref="tax_group_sale"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.1')"/>
+            <field name="invoice_account" ref="pc_101040204"/>
+            <field name="credit_note_account" ref="pc_101040204"/>
+            <field name="invoice_base_code" ref="taxcode_1040101"/>
+            <field name="invoice_tax_code" ref="taxcode_1040215"/>
+            <field name="credit_note_base_code" ref="taxcode_1040101"/>
+            <field name="credit_note_tax_code" ref="taxcode_1040215"/>
+            <field name="invoice_base_sign" eval="1"/>
+            <field name="invoice_tax_sign" eval="1"/>
+            <field name="credit_note_base_sign" eval="-1"/>
+            <field name="credit_note_tax_sign" eval="-1"/>
+        </record>
+    </data>
+</tryton>

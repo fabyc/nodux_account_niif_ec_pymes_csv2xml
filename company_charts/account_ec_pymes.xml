@@ -1,0 +1,669 @@
+<?xml version='1.0'?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="account.account.type.template" id="ec">
+            <field name="name">PLAN CONTABLE NIIF PYMES ECUADOR</field>
+            <field name="sequence" eval="1"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf">
+            <field name="name">ESTADO DE SITUACION FINANCIERA</field>
+            <field name="parent" ref="ec"/>
+            <field name="sequence" eval="2"/>
+            <field name="balance_sheet" eval="True"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_1">
+            <field name="name">ACTIVO</field>
+            <field name="parent" ref="ec_esf"/>
+            <field name="sequence" eval="1"/>
+            <field name="balance_sheet" eval="True"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_101">
+            <field name="name">ACTIVO CORRIENTE</field>
+            <field name="parent" ref="ec_esf_1"/>
+            <field name="sequence" eval="101"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_10101">
+            <field name="name">EFECTIVO Y EQUIVALENTES AL EFECTIVO</field>
+            <field name="parent" ref="ec_esf_101"/>
+            <field name="sequence" eval="10101"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_10102">
+            <field name="name">POR COBRAR</field>
+            <field name="parent" ref="ec_esf_101"/>
+            <field name="sequence" eval="10102"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_10103">
+            <field name="name">OTROS ACTIVOS CORRIENTES</field>
+            <field name="parent" ref="ec_esf_101"/>
+            <field name="sequence" eval="10103"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_10104">
+            <field name="name">ACTIVOS POR IMPUESTOS CORRIENTES</field>
+            <field name="parent" ref="ec_esf_101"/>
+            <field name="sequence" eval="10104"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_1010401">
+            <field name="name">CRÉDITO TRIBUTARIO A FAVOR DE LA EMPRESA (IVA)</field>
+            <field name="parent" ref="ec_esf_10104"/>
+            <field name="sequence" eval="1010401"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_1010402">
+            <field name="name">CRÉDITO TRIBUTARIO A FAVOR DE LA EMPRESA ( I. R.)</field>
+            <field name="parent" ref="ec_esf_10104"/>
+            <field name="sequence" eval="1010402"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_1010403">
+            <field name="name">ANTICIPO DE IMPUESTO A LA RENTA</field>
+            <field name="parent" ref="ec_esf_10104"/>
+            <field name="sequence" eval="1010403"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_102">
+            <field name="name">ACTIVO NO CORRIENTE</field>
+            <field name="parent" ref="ec_esf_1"/>
+            <field name="sequence" eval="102"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_2">
+            <field name="name">PASIVO</field>
+            <field name="parent" ref="ec_esf"/>
+            <field name="sequence" eval="2"/>
+            <field name="balance_sheet" eval="True"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_201">
+            <field name="name">PASIVO CORRIENTE</field>
+            <field name="parent" ref="ec_esf_2"/>
+            <field name="sequence" eval="201"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_20101">
+            <field name="name">POR PAGAR</field>
+            <field name="parent" ref="ec_esf_201"/>
+            <field name="sequence" eval="20101"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_20102">
+            <field name="name">OTRAS OBLIGACIONES CORRIENTES</field>
+            <field name="parent" ref="ec_esf_201"/>
+            <field name="sequence" eval="20102"/>
+            <field name="display_balance">credit-debit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_2010201">
+            <field name="name">CON LA ADMINISTRACIÓN TRIBUTARIA</field>
+            <field name="parent" ref="ec_esf_20102"/>
+            <field name="sequence" eval="2010201"/>
+            <field name="display_balance">credit-debit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_2010202">
+            <field name="name">IMPUESTO A LA RENTA POR PAGAR DEL EJERCICIO</field>
+            <field name="parent" ref="ec_esf_20102"/>
+            <field name="sequence" eval="2010202"/>
+            <field name="display_balance">credit-debit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_2010203">
+            <field name="name">CON EL IESS</field>
+            <field name="parent" ref="ec_esf_20102"/>
+            <field name="sequence" eval="2010203"/>
+            <field name="display_balance">credit-debit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_2010204">
+            <field name="name">POR BENEFICIOS DE LEY A EMPLEADOS</field>
+            <field name="parent" ref="ec_esf_20102"/>
+            <field name="sequence" eval="2010204"/>
+            <field name="display_balance">credit-debit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_esf_202">
+            <field name="name">PASIVO NO CORRIENTE</field>
+            <field name="parent" ref="ec_esf_2"/>
+            <field name="sequence" eval="202"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_eri">
+            <field name="name">ESTADO DEL RESULTADO INTEGRAL</field>
+            <field name="parent" ref="ec"/>
+            <field name="sequence" eval="3"/>
+            <field name="income_statement" eval="True"/>
+            <field name="display_balance">credit-debit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_eri_3">
+            <field name="name">PATRIMONIO</field>
+            <field name="parent" ref="ec_eri"/>
+            <field name="sequence" eval="3"/>
+            <field name="balance_sheet" eval="True"/>
+            <field name="display_balance">debit-credit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_eri_301">
+            <field name="name">INGRESO / GASTOS</field>
+            <field name="parent" ref="ec_eri_3"/>
+            <field name="sequence" eval="301"/>
+            <field name="income_statement" eval="True"/>
+            <field name="display_balance">credit-debit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_eri_30101">
+            <field name="name">INGRESOS</field>
+            <field name="parent" ref="ec_eri_301"/>
+            <field name="sequence" eval="30101"/>
+            <field name="display_balance">credit-debit</field>
+        </record>
+        <record model="account.account.type.template" id="ec_eri_30102">
+            <field name="name">GASTOS</field>
+            <field name="parent" ref="ec_eri_301"/>
+            <field name="sequence" eval="30102"/>
+            <field name="display_balance">credit-debit</field>
+        </record>
+        <record model="account.account.template" id="pc">
+            <field name="name">PLAN DE CUENTAS NIIF PYMES ECUADOR</field>
+            <field name="kind">view</field>
+            <field name="type" ref="ec"/>
+        </record>
+        <record model="account.account.template" id="pc_1">
+            <field name="name">ACTIVO</field>
+            <field name="parent" ref="pc"/>
+            <field name="code">1</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_101">
+            <field name="name">ACTIVO CORRIENTE</field>
+            <field name="parent" ref="pc_1"/>
+            <field name="code">101</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_10101">
+            <field name="name">EFECTIVO Y EQUIVALENTES AL EFECTIVO</field>
+            <field name="parent" ref="pc_101"/>
+            <field name="code">10101</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_1010101">
+            <field name="name">EFECTIVO</field>
+            <field name="parent" ref="pc_10101"/>
+            <field name="code">1010101</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10101"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_1010102">
+            <field name="name">CHEQUE</field>
+            <field name="parent" ref="pc_10101"/>
+            <field name="code">1010102</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10101"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_1010103">
+            <field name="name">TARJETA DE CREDITO</field>
+            <field name="parent" ref="pc_10101"/>
+            <field name="code">1010103</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10101"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_1010104">
+            <field name="name">BANCOS</field>
+            <field name="parent" ref="pc_10101"/>
+            <field name="code">1010104</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_101010401">
+            <field name="name">BANCO 1</field>
+            <field name="parent" ref="pc_1010104"/>
+            <field name="code">101010401</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10101"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_101010402">
+            <field name="name">BANCO 2</field>
+            <field name="parent" ref="pc_1010104"/>
+            <field name="code">101010402</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10101"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_10102">
+            <field name="name">POR COBRAR</field>
+            <field name="parent" ref="pc_101"/>
+            <field name="code">10102</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">receivable</field>
+            <field name="type" ref="ec_esf_10102"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_10103">
+            <field name="name">OTROS ACTIVOS CORRIENTES</field>
+            <field name="parent" ref="pc_101"/>
+            <field name="code">10103</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_1010301">
+            <field name="name">IMPUESTOS FISCALES IVA COMPRAS</field>
+            <field name="parent" ref="pc_10103"/>
+            <field name="code">1010301</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10103"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_10104">
+            <field name="name">ACTIVOS POR IMPUESTOS CORRIENTES</field>
+            <field name="parent" ref="pc_101"/>
+            <field name="code">10104</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_1010401">
+            <field name="name">CRÉDITO TRIBUTARIO A FAVOR DE LA EMPRESA (IVA)</field>
+            <field name="parent" ref="pc_10104"/>
+            <field name="code">1010401</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010401"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_1010402">
+            <field name="name">CRÉDITO TRIBUTARIO A FAVOR DE LA EMPRESA ( I. R.)</field>
+            <field name="parent" ref="pc_10104"/>
+            <field name="code">1010402</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010402"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_1010403">
+            <field name="name">ANTICIPO DE IMPUESTO A LA RENTA</field>
+            <field name="parent" ref="pc_10104"/>
+            <field name="code">1010403</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010403"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_102">
+            <field name="name">ACTIVO NO CORRIENTE</field>
+            <field name="parent" ref="pc_1"/>
+            <field name="code">102</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_102"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_2">
+            <field name="name">PASIVO</field>
+            <field name="parent" ref="pc"/>
+            <field name="code">2</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_201">
+            <field name="name">PASIVO CORRIENTE</field>
+            <field name="parent" ref="pc_2"/>
+            <field name="code">201</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_20101">
+            <field name="name">POR PAGAR</field>
+            <field name="parent" ref="pc_201"/>
+            <field name="code">20101</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">payable</field>
+            <field name="type" ref="ec_esf_20101"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_20102">
+            <field name="name">OTRAS OBLIGACIONES CORRIENTES</field>
+            <field name="parent" ref="pc_201"/>
+            <field name="code">20102</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_2010201">
+            <field name="name">CON LA ADMINISTRACIÓN TRIBUTARIA</field>
+            <field name="parent" ref="pc_20102"/>
+            <field name="code">2010201</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_201020101">
+            <field name="name">IVA VENTAS POR PAGAR</field>
+            <field name="parent" ref="pc_2010201"/>
+            <field name="code">201020101</field>
+            <field name="kind">view</field>
+        </record>
+        <record model="account.account.template" id="pc_201020102">
+            <field name="name">RETENCIONES IMPUESTO A LA RENTA POR PAGAR</field>
+            <field name="parent" ref="pc_2010201"/>
+            <field name="code">201020102</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">payable</field>
+            <field name="type" ref="ec_esf_2010201"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_201020103">
+            <field name="name">RETENCIONES IMPUESTO IVA POR PAGAR</field>
+            <field name="parent" ref="pc_2010201"/>
+            <field name="code">201020103</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">payable</field>
+            <field name="type" ref="ec_esf_2010201"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_2010202">
+            <field name="name">IMPUESTO A LA RENTA POR PAGAR DEL EJERCICIO</field>
+            <field name="parent" ref="pc_20102"/>
+            <field name="code">2010202</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">payable</field>
+            <field name="type" ref="ec_esf_2010202"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_2010203">
+            <field name="name">CON EL IESS</field>
+            <field name="parent" ref="pc_20102"/>
+            <field name="code">2010203</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">payable</field>
+            <field name="type" ref="ec_esf_2010203"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_2010204">
+            <field name="name">POR BENEFICIOS DE LEY A EMPLEADOS</field>
+            <field name="parent" ref="pc_20102"/>
+            <field name="code">2010204</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">payable</field>
+            <field name="type" ref="ec_esf_2010204"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_202">
+            <field name="name">PASIVO NO CORRIENTE</field>
+            <field name="parent" ref="pc_2"/>
+            <field name="code">202</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">payable</field>
+            <field name="type" ref="ec_esf_202"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_3">
+            <field name="name">INGRESOS PRINCIPAL</field>
+            <field name="parent" ref="pc"/>
+            <field name="code">3</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">revenue</field>
+            <field name="type" ref="ec_eri_30101"/>
+            <field name="deferral" eval="False"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_4">
+            <field name="name">GASTOS PRINCIPAL</field>
+            <field name="parent" ref="pc"/>
+            <field name="code">4</field>
+            <field name="reconcile" eval="False"/>
+            <field name="kind">expense</field>
+            <field name="type" ref="ec_eri_30102"/>
+            <field name="deferral" eval="False"/>
+            <field name="party_required" eval="False"/>
+        </record>
+        <record model="account.account.template" id="pc_20102010101">
+            <field name="name">IVA VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 12%</field>
+            <field name="parent" ref="pc_201020101"/>
+            <field name="code">20102010101</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_2010201"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_20102010102">
+            <field name="name">IVA VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 0% QUE NO DAN DERECHO A CREDITO TRIBUTARIO</field>
+            <field name="parent" ref="pc_201020101"/>
+            <field name="code">20102010102</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_2010201"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_20102010103">
+            <field name="name">IVA VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 0% QUE DAN DERECHO A CREDITO TRIBUTARIO</field>
+            <field name="parent" ref="pc_201020101"/>
+            <field name="code">20102010103</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_2010201"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_20102010104">
+            <field name="name">VENTAS NO OBJETO DE IVA</field>
+            <field name="parent" ref="pc_201020101"/>
+            <field name="code">20102010104</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_2010201"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_20102010105">
+            <field name="name">VENTAS EXENTAS DE IVA</field>
+            <field name="parent" ref="pc_201020101"/>
+            <field name="code">20102010105</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_2010201"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_20102010106">
+            <field name="name">IVA VENTAS LOCALES GRAVADAS TARIFA 14%</field>
+            <field name="parent" ref="pc_201020101"/>
+            <field name="code">20102010106</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_2010201"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101030101">
+            <field name="name">IVA COMPRAS GRAVADAS TARIFA 12% (CON DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="parent" ref="pc_1010301"/>
+            <field name="code">101030101</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10103"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101030102">
+            <field name="name">IVA OTRAS COMPRAS GRAVADAS TARIFA 12% (SIN DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="parent" ref="pc_1010301"/>
+            <field name="code">101030102</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10103"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101030103">
+            <field name="name">IVA COMPRAS GRAVADAS TARIFA 0%</field>
+            <field name="parent" ref="pc_1010301"/>
+            <field name="code">101030103</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10103"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101030104">
+            <field name="name">COMPRAS REALIZADAS A CONTRIBUYENTES RISE </field>
+            <field name="parent" ref="pc_1010301"/>
+            <field name="code">101030104</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10103"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101030105">
+            <field name="name">COMPRAS NO OBJETO DE IVA</field>
+            <field name="parent" ref="pc_1010301"/>
+            <field name="code">101030105</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10103"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101030106">
+            <field name="name">COMPRAS EXENTAS DEL PAGO DE IVA</field>
+            <field name="parent" ref="pc_1010301"/>
+            <field name="code">101030106</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10103"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101030107">
+            <field name="name">IVA COMPRAS GRAVADOS TARIFA 14% (CON DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="parent" ref="pc_1010301"/>
+            <field name="code">101030107</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10103"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101030108">
+            <field name="name">IVA OTRAS COMPRAS GRAVADOS TARIFA 14% (SIN DERECHO A CRÉDITO TRIBUTARIO)</field>
+            <field name="parent" ref="pc_1010301"/>
+            <field name="code">101030108</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_10103"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101040101">
+            <field name="name">ANTICIPO RETENCION IVA 10%</field>
+            <field name="parent" ref="pc_1010401"/>
+            <field name="code">101040101</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010401"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101040102">
+            <field name="name">ANTICIPO RETENCION IVA 20%</field>
+            <field name="parent" ref="pc_1010401"/>
+            <field name="code">101040102</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010401"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101040103">
+            <field name="name">ANTICIPO RETENCION IVA 30%</field>
+            <field name="parent" ref="pc_1010401"/>
+            <field name="code">101040103</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010401"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101040104">
+            <field name="name">ANTICIPO RETENCION IVA 70%</field>
+            <field name="parent" ref="pc_1010401"/>
+            <field name="code">101040104</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010401"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101040105">
+            <field name="name">ANTICIPO RETENCION IVA 100%</field>
+            <field name="parent" ref="pc_1010401"/>
+            <field name="code">101040105</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010401"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101040201">
+            <field name="name">ANTICIPO RETENCION EN LA FUENTE 1%</field>
+            <field name="parent" ref="pc_1010402"/>
+            <field name="code">101040201</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010402"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101040202">
+            <field name="name">ANTICIPO RETENCION EN LA FUENTE 2%</field>
+            <field name="parent" ref="pc_1010402"/>
+            <field name="code">101040202</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010402"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101040203">
+            <field name="name">ANTICIPO RETENCION EN LA FUENTE 8%</field>
+            <field name="parent" ref="pc_1010402"/>
+            <field name="code">101040203</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010402"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+        <record model="account.account.template" id="pc_101040204">
+            <field name="name">ANTICIPO RETENCION EN LA FUENTE 10%</field>
+            <field name="parent" ref="pc_1010402"/>
+            <field name="code">101040204</field>
+            <field name="reconcile" eval="True"/>
+            <field name="kind">other</field>
+            <field name="type" ref="ec_esf_1010402"/>
+            <field name="deferral" eval="True"/>
+            <field name="party_required" eval="True"/>
+        </record>
+    </data>
+</tryton>

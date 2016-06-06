@@ -1,0 +1,4 @@
+id,name,code,kind
+tax_group_sale,Ventas,Ventas,sale
+tax_group_purchase,Compras,Compras,purchase
+tax_group_both,Ambos,Ambos,both
