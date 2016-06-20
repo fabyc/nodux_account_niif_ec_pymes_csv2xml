@@ -188,7 +188,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="kind">view</field>
         </record>
         <record model="account.account.template" id="pc_1010101">
-            <field name="name">EFECTIVO</field>
+            <field name="name">CAJA GENERAL</field>
             <field name="parent" ref="pc_10101"/>
             <field name="code">1010101</field>
             <field name="reconcile" eval="False"/>
